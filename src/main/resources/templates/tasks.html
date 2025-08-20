@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>WhatToDo</title>
 </head>
 <body>
-$END$
+    <div>
+        <h1>WhatToDo</h1>
+        <br>
+        <h2>Greatest To Do List Ever!</h2>
+    </div>
+    <div>
+        <th:block th:each="task : ${tasks}">
+            <div>
+                <span th:text="${task.title}">Task Title</span>
+            </div>
+        </th:block>
+    </div>
+
 </body>
 </html>
