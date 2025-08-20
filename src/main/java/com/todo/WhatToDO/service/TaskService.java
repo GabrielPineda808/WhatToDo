@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TaskService {
@@ -23,6 +24,16 @@ public class TaskService {
         Task task = new Task();
         task.setCompleted(false);
         task.setTitle(title);
+        taskRepository.save(task);
+    }
+
+    public void deleteTask(Long id){
+        taskRepository.deleteById(id);
+    }
+
+    public void toggleTask (Long id){
+        Task task = taskRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid Task ID"));
+        task.setCompleted(!task.isCompleted());
         taskRepository.save(task);
     }
 }
