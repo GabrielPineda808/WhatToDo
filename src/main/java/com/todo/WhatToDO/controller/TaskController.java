@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -24,6 +25,12 @@ public class TaskController {
     public String getTasks(Model model){
         List<Task> tasks = taskService.allTasks();
         model.addAttribute("tasks", tasks); // says addAttribute() is not a method of Model
+        return "tasks";
+    }
+
+    @PostMapping
+    public String createTask(@RequestParam String title){
+        taskService.createTask(title);
         return "tasks";
     }
 }
