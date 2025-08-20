@@ -18,7 +18,11 @@ public class TaskService {
     public List<Task> allTasks(){
         return new ArrayList<>(taskRepository.findAll());
     }
-    public Task addTask(Task task){
-        return taskRepository.save(task);
+
+    public void createTask(String title){
+        Task task = new Task();
+        task.setCompleted(false);
+        task.setTitle(title);
+        taskRepository.save(task);
     }
 }
