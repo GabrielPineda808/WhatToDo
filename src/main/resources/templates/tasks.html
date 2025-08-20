@@ -11,6 +11,14 @@
         <h2>Greatest To Do List Ever!</h2>
     </div>
     <div>
+        <form action="/tasks" method="post">
+            <div>
+                <input tpye="text" name="title" placeholder="Add new task..." required>
+            </div>
+            <div>
+                <button type="submit">Add</button>
+            </div>
+        </form>
         <th:block th:each="task : ${tasks}">
             <div>
                 <span th:text="${task.title}">Task Title</span>
