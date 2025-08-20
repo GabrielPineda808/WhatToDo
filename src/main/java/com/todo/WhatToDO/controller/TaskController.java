@@ -13,9 +13,12 @@ import java.util.List;
 
 @RequestMapping("/tasks")
 @Controller
-@RequiredArgsConstructor
 public class TaskController {
     private final TaskService taskService;
+
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
+    }
 
     @GetMapping
     public String getTasks(Model model){
