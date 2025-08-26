@@ -32,4 +32,8 @@ build/
 ### VS Code ###
 .vscode/
 
+<<<<<<< HEAD
 .env
+=======
+.env
+>>>>>>> a0e6b8eedf6ba89bd0bbd614b0164f7da1dc1c25
